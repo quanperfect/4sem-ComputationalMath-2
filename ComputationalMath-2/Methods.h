@@ -49,9 +49,6 @@ methodResult solveWithBisectionMethod(int equationNumber) {
 	std::cout << "Bisection Method" << std::endl;
 	double leftGuess, rightGuess, epsilon;
 
-	//todo
-	//std::cout << setprecision(6) << std::fixed;
-
 	std::cout << "Enter left guess: ";
 	std::cin >> leftGuess;	
 	std::cout << "Enter right guess: ";
@@ -71,13 +68,13 @@ methodResult solveWithBisectionMethod(int equationNumber) {
 
 	//while ((rightGuess - leftGuess) >= epsilon) {
 	while (fabs(function(rightGuess) - function(leftGuess)) >= epsilon) {
-		// Find middle point
+		// middle point
 		middleGuess = (leftGuess + rightGuess) / 2;
 		
-		// Check if middle point is root
+		// is middle already root?
 		if (function(middleGuess) == 0.0)
 			break;
-		// Decide the side to repeat the steps
+		// which half to chose?
 		else if (function(middleGuess) * function(leftGuess) < 0)
 			rightGuess = middleGuess;
 		else
